@@ -141,12 +141,12 @@ A) In decorvista-node/ folder:
 
    PORT=5000
    NODE_ENV=development
-   MONGODB_URI=mongodb+srv://decorvista_user:YOURPASSWORD@cluster0.XXXXX.mongodb.net/decorvista?retryWrites=true&w=majority
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.XXXXX.mongodb.net/decorvista?retryWrites=true&w=majority
    JWT_SECRET=decorvista_any_long_random_string_here_123
    JWT_EXPIRE=7d
    FRONTEND_URL=http://localhost:3000
 
-   Replace YOURPASSWORD and cluster0.XXXXX with your actual MongoDB values from Step 1.
+   Replace <username>, <password>, and cluster0.XXXXX with your actual MongoDB values from Step 1.
 
 B) In decorvista-flask/ folder:
    - Find .env.example
