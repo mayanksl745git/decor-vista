@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 import os
 import json
-import google.generativeai as genai
+# import google.generativeai as genai
 
 vastu_bp = Blueprint('vastu', __name__)
 
@@ -226,27 +226,36 @@ def analyze_vastu():
         result = calculate_vastu_score(room_type, facing_direction, elements)
 
         # If Gemini available, enhance recommendations
-        if GEMINI_API_KEY:
-            try:
-                model = genai.GenerativeModel('gemini-2.0-flash')
-                gemini_prompt = f"""
-                You are a Vastu Shastra expert. A user has a {room_type} facing {facing_direction} direction on {floor} floor.
-                Elements present: {', '.join(elements) if elements else 'standard furniture'}.
+        # if GEMINI_API_KEY:
+        #     try:
+        #         model = genai.GenerativeModel('gemini-2.0-flash')
+        #         gemini_prompt = f"""
+        #         You are a Vastu Shastra expert. A user has a {room_type} facing {facing_direction} direction on {floor} floor.
+        #         Elements present: {', '.join(elements) if elements else 'standard furniture'}.
                 
-                Provide 3 specific, practical Vastu recommendations for this room in Indian context.
-                Be specific about directions (North, South, etc.) and practical changes.
-                Return as a JSON array of strings. Example: ["Move bed to...", "Place a..."]
-                Return ONLY the JSON array, nothing else.
-                """
-                response = model.generate_content(gemini_prompt)
-                text = response.text.strip().replace("```json", "").replace("```", "").strip()
-                ai_recommendations = json.loads(text)
-                result["aiRecommendations"] = ai_recommendations
-            except Exception as e:
-                print(f"Gemini enhancement error: {e}")
-                result["aiRecommendations"] = []
-        else:
-            result["aiRecommendations"] = []
+        #         Provide 3 specific, practical Vastu recommendations for this room in Indian context.
+        #         Be specific about directions (North, South, etc.) and practical changes.
+        #         Return as a JSON array of strings. Example: ["Move bed to...", "Place a..."]
+        #         Return ONLY the JSON array, nothing else.
+        #         """
+        #         response = model.generate_content(gemini_prompt)
+        #         text = response.text.strip().replace("```json", "").replace("```", "").strip()
+        #         ai_recommendations = json.loads(text)
+        #         result["aiRecommendations"] = ai_recommendations
+        #     except Exception as e:
+        #         print(f"Gemini enhancement error: {e}")
+        #         result["aiRecommendations"] = []
+        # else:
+        #     result["aiRecommendations"] = []
+
+        # 🔥 Fallback recommendations (safe)
+        result["aiRecommendations"] = [
+            "Place heavy furniture in South-West direction",
+            "Keep North-East area clean and clutter-free",
+            "Use natural light and ventilation",
+            "Avoid mirrors directly facing the bed",
+            "Add plants or calming elements in East direction"
+        ]
 
         return jsonify({"success": True, "result": result})
 
