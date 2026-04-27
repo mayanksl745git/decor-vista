@@ -1,0 +1,19 @@
+# ===== FRONTEND =====
+decorvista-frontend/node_modules/
+decorvista-frontend/dist/
+decorvista-frontend/.env
+
+# ===== FLASK BACKEND =====
+decorvista-flask/venv/
+decorvista-flask/__pycache__/
+decorvista-flask/.env
+
+# ===== NODE BACKEND =====
+decorvista-node/node_modules/
+decorvista-node/.env
+
+# ===== COMMON =====
+*.pyc
+.DS_Store
+Thumbs.db
+npm-debug.log*
