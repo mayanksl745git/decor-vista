@@ -252,17 +252,17 @@ import time
 import random
 import json
 from flask import Blueprint, request, jsonify
-import google.generativeai as genai
+# import google.generativeai as genai
 from PIL import Image
 import io
 
 ai_bp = Blueprint('ai', __name__)
 
-GEMINI_KEY = os.getenv('GEMINI_API_KEY', '')
+# GEMINI_KEY = os.getenv('GEMINI_API_KEY', '')
 POLLINATIONS_BASE = "https://image.pollinations.ai/prompt"
 
-if GEMINI_KEY:
-    genai.configure(api_key=GEMINI_KEY)
+# if GEMINI_KEY:
+#     genai.configure(api_key=GEMINI_KEY)
 
 # ──────────────────────────────────────────────
 #  STEP 1 — Analyze room image with Gemini Vision
@@ -278,10 +278,10 @@ def analyze_room():
     mime_type = image_file.content_type or 'image/jpeg'
 
     try:
-        if not GEMINI_KEY:
-            return jsonify({'analysis': _fallback_analysis(), 'success': True})
+        # if not GEMINI_KEY:
+        #     return jsonify({'analysis': _fallback_analysis(), 'success': True})
 
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        # model = genai.GenerativeModel('gemini-2.0-flash-exp')
         prompt = """Analyze this room image in detail. Provide:
 1. Room type (bedroom, living room, kitchen, bathroom, etc.)
 2. Current style (modern, traditional, minimalist, bohemian, etc.)
