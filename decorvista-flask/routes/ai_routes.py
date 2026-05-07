@@ -243,7 +243,7 @@
 
 
 
-# Updated one with Pollination AI
+# Updated one with Pollination AI plus gemini
 
 import os
 import requests
