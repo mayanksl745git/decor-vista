@@ -3,7 +3,7 @@ import { Star } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Priya S.',
+    name: 'Priya Sangwani',
     city: 'Mumbai',
     initials: 'PS',
     color: 'bg-[var(--primary)]',
@@ -11,7 +11,7 @@ const testimonials = [
       'The Vastu analyzer completely changed how I arranged my bedroom. Sleep quality improved noticeably after following the recommendations!',
   },
   {
-    name: 'Rohit K.',
+    name: 'Rohit Kalra',
     city: 'Delhi',
     initials: 'RK',
     color: 'bg-[var(--secondary)]',
@@ -19,7 +19,7 @@ const testimonials = [
       'AI redesign blew my mind. It showed me a stunning boho-style living room from my old cluttered photo. Hired a decorator based on that vision!',
   },
   {
-    name: 'Sneha M.',
+    name: 'Sneha Mahajan',
     city: 'Bengaluru',
     initials: 'SM',
     color: 'bg-[var(--accent-purple)]',
